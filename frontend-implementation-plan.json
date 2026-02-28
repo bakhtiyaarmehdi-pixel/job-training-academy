@@ -1,0 +1,207 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Job Training Academy Website - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a Home page with headline, intro, featured courses, CTAs, testimonials, and footer",
+      "acceptanceCriteria": [
+        "Headline is visible above the fold on desktop and mobile",
+        "Featured courses section links to the Courses page",
+        "At least one 'Enroll Now' CTA button scrolls to or links to course enrollment",
+        "Testimonials section renders at least 3 sample testimonials",
+        "Footer displays contact info and social link icons"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page component with hero section (bold headline 'Upgrade Your Skills. Get Job Ready.', academy intro paragraph), featured courses section (fetch up to 3-4 courses via getAllCourses, display as cards with 'View Course' links to /courses), prominent 'Enroll Now' CTAs linking to /courses, testimonials section with 3 sample student quotes in card layout, and footer with contact details and social media placeholder links. Wire generated hero banner image from frontend/public/assets/generated/hero-banner.dim_1200x400.png as hero background. Ensure mobile responsiveness."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create reusable Footer component displaying contact phone number, email address, placeholder social media icon links (Facebook, Twitter, LinkedIn), and copyright notice. Style with navy background and white text. Make phone and email clickable (tel: and mailto: links)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Home page at root route '/' in the router. Import and add Home component to routing configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create a Courses page listing all courses in responsive card/grid layout",
+      "acceptanceCriteria": [
+        "Courses are fetched from the backend and rendered as cards",
+        "Grid is responsive (1 column on mobile, 2–3 on desktop)",
+        "Each card shows title, description, duration, fees, and Enroll Now button",
+        "Clicking a card navigates to the Course Detail page for that course"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Courses.tsx",
+          "operation": "create",
+          "description": "Create Courses page component that fetches all courses using getAllCourses backend method. Display courses in responsive grid layout (1 column mobile, 2-3 columns desktop). Each course card displays title, shortDescription, batchTimings as duration, fees formatted as currency, and 'Enroll Now' button. Make entire card clickable to navigate to /course/:id route. Show loading state and empty state if no courses exist. Apply card styling with shadows and navy accent colors."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Courses page at /courses route in the router. Import and add Courses component to routing configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create a Course Detail page showing full course info and enrollment button",
+      "acceptanceCriteria": [
+        "Route accepts a course ID parameter and loads the correct course",
+        "All fields (description, syllabus, trainer, batch timings, price) are displayed",
+        "'Enroll Now' button is visible and functional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CourseDetail.tsx",
+          "operation": "create",
+          "description": "Create Course Detail page component that accepts courseId parameter from route. Fetch course data using getCourse backend method. Display course title as page heading, fullDescription paragraph, syllabus as ordered/bulleted list of topics, trainer name and bio in a dedicated section, batch timings, fees formatted as currency, and prominent 'Enroll Now' button that navigates to /checkout/:courseId. Handle loading and not-found states. Apply professional styling with navy headings and card-based layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Course Detail page at /course/:id route in the router. Import and add CourseDetail component to routing configuration with route parameter support."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build simulated checkout/enrollment flow with form, backend enrollment creation, and Thank You redirect",
+      "acceptanceCriteria": [
+        "Checkout form collects name, email, and phone",
+        "Submitting the form creates an enrollment record in the backend",
+        "User is redirected to a /thank-you page after submission",
+        "Thank You page displays a confirmation message with the course name",
+        "A note about payment gateway integration is displayed on the checkout form"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Checkout.tsx",
+          "operation": "create",
+          "description": "Create Checkout page component that accepts courseId route parameter. Fetch course details using getCourse to display course title and fees. Render checkout form with fields: studentName, email, phoneNumber (all required). Display visible note: 'Payment gateway integration (Razorpay/Instamojo) requires external credentials not available in this environment. This is a simulated enrollment.' On form submission, call createEnrollment backend method with form data and courseId, handle success/error states, and redirect to /thank-you?course=<courseTitle> on success. Apply form validation and navy-themed button styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Checkout page at /checkout/:courseId route in the router. Import and add Checkout component to routing configuration with route parameter support."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build Thank You page with confirmation message and Zoom link notification",
+      "acceptanceCriteria": [
+        "Thank You page is accessible at /thank-you",
+        "Page displays a congratulations message and the course name",
+        "Page informs the student to check their email for the Zoom link"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ThankYou.tsx",
+          "operation": "create",
+          "description": "Create Thank You page component that reads course name from query parameter. Display congratulations heading, confirmation message including enrolled course name, message stating 'You will receive a Zoom meeting link at your registered email address once the admin confirms your enrollment.', and 'Back to Home' button linking to /. Apply centered layout with navy accent colors and graduation cap icon from frontend/public/assets/generated/graduation-icon.dim_128x128.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Thank You page at /thank-you route in the router. Import and add ThankYou component to routing configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create Contact page with form, WhatsApp button, contact details, and Maps placeholder",
+      "acceptanceCriteria": [
+        "Contact form renders all four fields and a Submit button",
+        "WhatsApp button opens wa.me link in a new tab",
+        "Phone and email are displayed as clickable links (tel: and mailto:)",
+        "Google Maps placeholder section is visible with an explanatory label"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact page component with contact form (fields: Name, Email, Phone, Message, Submit button with simulated submission feedback). Display WhatsApp click-to-chat button linking to placeholder wa.me link (target=_blank). Show phone number as clickable tel: link and email as mailto: link. Include placeholder section labeled 'Location Map (Google Maps embed requires API key not available in this environment)' with grey background box. Apply responsive two-column layout on desktop (form left, contact info right). Use navy color scheme and card-based styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Contact page at /contact route in the router. Import and add Contact component to routing configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build Admin Dashboard with course management (CRUD) and enrollment management (view, mark paid)",
+      "acceptanceCriteria": [
+        "Admin dashboard is accessible at /admin",
+        "Course list shows all courses with Edit and Delete buttons",
+        "Add Course form saves a new course to the backend",
+        "Edit Course form pre-fills existing data and updates the record",
+        "Delete removes the course from the backend",
+        "Enrollments table shows name, email, course, and payment status",
+        "Admin can click a button to mark an enrollment as paid"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Admin.tsx",
+          "operation": "create",
+          "description": "Create Admin Dashboard page component with two main sections: Course Management (list all courses using getAllCourses in table/card view with Edit and Delete buttons per course, 'Add New Course' button opening add form modal/view) and Enrollment Management (list all enrollments using getAllEnrollments in table showing studentName, email, courseId-resolved course title, paymentStatus, and 'Mark Paid' button for pending enrollments calling markEnrollmentPaid). Implement in-page or modal forms for add/edit course workflows. Apply admin-focused styling with navy header and responsive layout."
+        },
+        {
+          "path": "frontend/src/components/CourseForm.tsx",
+          "operation": "create",
+          "description": "Create reusable CourseForm component accepting optional course prop for edit mode. Render form fields: title, shortDescription (textarea), fullDescription (textarea), syllabus (dynamic list input for multiple topics), trainerName, trainerBio (textarea), batchTimings, fees (number input), zoomLink (text input with URL validation hint). On submit, call createCourse for new courses or updateCourse for edits. Provide Save/Cancel buttons. Apply validation and navy-themed button styling."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register Admin Dashboard at /admin route in the router. Import and add Admin component to routing configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Apply professional visual theme with navy/white/grey palette, clean typography, sticky navigation, and mobile responsiveness",
+      "acceptanceCriteria": [
+        "Navigation bar is sticky and includes links to all main pages",
+        "Navigation collapses to a hamburger menu on mobile",
+        "Color palette is consistently navy, white, and grey throughout",
+        "All pages are fully usable on a 375px-wide mobile viewport",
+        "Card components use consistent shadow and border-radius styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS custom properties for color palette: --color-navy (#1E3A5F), --color-white (#FFFFFF), --color-grey (#F5F5F5), --color-grey-dark (#6B7280). Set body font to clean sans-serif (system-ui, -apple-system, sans-serif). Apply base styles for typography (headings use navy, body text use dark grey) and ensure generous whitespace with consistent margin/padding scale. Define utility classes for card styling (.card with white background, subtle shadow, border-radius). Ensure mobile-first responsive scaling."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors: navy (#1E3A5F), grey (#F5F5F5), greyDark (#6B7280). Configure font family to use sans-serif stack. Set default border-radius and shadow utilities matching design requirements. Ensure responsive breakpoints are configured for mobile-first development."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create Navigation component as sticky top bar (position: sticky, top: 0, z-index high) with navy background and white text. Display logo/academy name on left, navigation links (Home, Courses, Contact, Admin) on right for desktop. Implement hamburger menu toggle for mobile breakpoint (menu collapses to icon, opens as dropdown/slide-in menu). Use react-router NavLink for active route styling. Apply smooth transitions and ensure accessibility (aria-labels, keyboard navigation)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Navigation component so it appears on every page. Import Navigation and place it above the Routes component in the App layout."
+        }
+      ]
+    }
+  ]
+}

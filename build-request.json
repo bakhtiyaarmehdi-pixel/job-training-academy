@@ -1,0 +1,258 @@
+{
+  "kind": "build_request",
+  "title": "Job Training Academy Website",
+  "projectName": "SkillUp Academy",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a Home page with a bold headline ('Upgrade Your Skills. Get Job Ready.'), a short academy intro paragraph, a highlights section showcasing up to 3–4 featured courses, prominent 'Enroll Now' CTA buttons, a testimonials section with student quotes, and a footer containing contact details and placeholder social media links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home Page",
+          "Clear headline",
+          "Testimonials section",
+          "Footer with contact details and social links"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Headline is visible above the fold on desktop and mobile",
+        "Featured courses section links to the Courses page",
+        "At least one 'Enroll Now' CTA button scrolls to or links to course enrollment",
+        "Testimonials section renders at least 3 sample testimonials",
+        "Footer displays contact info and social link icons"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a Courses page that lists all available courses in a responsive card/grid layout. Each card must display: course title, short description, duration, fees, and an 'Enroll Now' button. Each card must be clickable to navigate to its Course Detail page.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Courses Page",
+          "List of all available courses in card/grid format",
+          "Course title",
+          "Short description",
+          "Duration",
+          "Fees",
+          "Enroll Now button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Courses are fetched from the backend and rendered as cards",
+        "Grid is responsive (1 column on mobile, 2–3 on desktop)",
+        "Each card shows title, description, duration, fees, and Enroll Now button",
+        "Clicking a card navigates to the Course Detail page for that course"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a Course Detail page showing the full course description, syllabus breakdown (list of topics), trainer name and bio, batch timings, pricing, and an 'Enroll Now' button. The page must be reachable via a route parameterized by course ID.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Course Detail Page",
+          "Full course description",
+          "Syllabus breakdown",
+          "Trainer information",
+          "Batch timings",
+          "Pricing",
+          "Enroll button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Route accepts a course ID parameter and loads the correct course",
+        "All fields (description, syllabus, trainer, batch timings, price) are displayed",
+        "'Enroll Now' button is visible and functional"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a backend data model for courses. Each course record must store: title, short description, full description, syllabus (array of topics), trainer name, trainer bio, batch timings, fees, and Zoom meeting link. Expose CRUD operations (create, read, update, delete) for courses accessible from the admin dashboard.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add/edit/delete courses",
+          "Update pricing",
+          "Zoom integration",
+          "Admin should be able to update Zoom links easily from dashboard"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend actor stores course records with all required fields",
+        "getCourses, getCourse, addCourse, updateCourse, deleteCourse methods are implemented",
+        "Zoom meeting link is a field on each course record and can be updated independently"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a backend data model for enrollments. Each enrollment record must store: student name, email, phone number, course ID, payment status (pending/paid), and enrollment timestamp. Expose methods to create an enrollment and list all enrollments.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Manage enrollments",
+          "View payment status"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Enrollment records are persisted in stable storage",
+        "createEnrollment and getEnrollments methods are implemented",
+        "Payment status field accepts 'pending' or 'paid' values"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a simulated checkout/enrollment flow on the Enroll Now button. When a student clicks 'Enroll Now' on a course, show a checkout form collecting name, email, and phone. On form submission, create an enrollment record in the backend with status 'pending', display an on-screen confirmation message, and redirect to a Thank You page. Include a visible note that payment gateway integration (Razorpay/Instamowo) requires external credentials not available in this environment.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Secure checkout process",
+          "Confirmation message",
+          "Redirect to Thank You page",
+          "Integrate Razorpay or Instamojo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Checkout form collects name, email, and phone",
+        "Submitting the form creates an enrollment record in the backend",
+        "User is redirected to a /thank-you page after submission",
+        "Thank You page displays a confirmation message with the course name",
+        "A note about payment gateway integration is displayed on the checkout form"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build a Thank You page that displays a confirmation message, the enrolled course name, and a note that the student will receive a Zoom meeting link at their registered email address once the admin confirms enrollment.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Redirect to Thank You page",
+          "After enrollment, students receive Zoom meeting link via email"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Thank You page is accessible at /thank-you",
+        "Page displays a congratulations message and the course name",
+        "Page informs the student to check their email for the Zoom link"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a Contact page with a contact form (fields: Name, Email, Phone, Message), a WhatsApp click-to-chat button (linking to a placeholder WhatsApp number), a displayed phone number and email address, and a placeholder section for a Google Maps embed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact Page",
+          "Contact form (Name, Email, Phone, Message)",
+          "WhatsApp click-to-chat button",
+          "Phone number and email display",
+          "Google Maps embed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form renders all four fields and a Submit button",
+        "WhatsApp button opens wa.me link in a new tab",
+        "Phone and email are displayed as clickable links (tel: and mailto:)",
+        "Google Maps placeholder section is visible with an explanatory label"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build an Admin Dashboard page accessible at /admin. The dashboard must support: listing all courses with edit and delete actions, adding a new course (form with all course fields including Zoom link), editing an existing course (pre-filled form), viewing all enrollments with student name, email, course, and payment status, and manually marking an enrollment as paid.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Easy backend dashboard",
+          "Add/edit/delete courses",
+          "Update pricing",
+          "Manage enrollments",
+          "View payment status",
+          "Admin should be able to update Zoom links easily from dashboard"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin dashboard is accessible at /admin",
+        "Course list shows all courses with Edit and Delete buttons",
+        "Add Course form saves a new course to the backend",
+        "Edit Course form pre-fills existing data and updates the record",
+        "Delete removes the course from the backend",
+        "Enrollments table shows name, email, course, and payment status",
+        "Admin can click a button to mark an enrollment as paid"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Apply a professional visual theme across the entire site: clean sans-serif typography, a minimal color palette of deep navy blue (#1E3A5F), white, and light grey, generous whitespace, card-based layouts with subtle shadows, and a sticky top navigation bar with links to Home, Courses, Contact, and Admin. Ensure full mobile responsiveness.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Professional and trustworthy",
+          "Simple layout with clear sections",
+          "Clean typography",
+          "Minimal color palette (blue, white, grey)",
+          "Easy navigation",
+          "mobile-friendly"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation bar is sticky and includes links to all main pages",
+        "Navigation collapses to a hamburger menu on mobile",
+        "Color palette is consistently navy, white, and grey throughout",
+        "All pages are fully usable on a 375px-wide mobile viewport",
+        "Card components use consistent shadow and border-radius styling"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not integrate actual Razorpay, Instamojo, Zoom, or email APIs — simulate those flows with UI feedback and backend state",
+    "Do not embed real Google Maps — use a clearly labeled placeholder section",
+    "Admin dashboard does not require authentication in this build",
+    "All Motoko logic must remain in a single backend actor"
+  ],
+  "nonGoals": [
+    "Real payment gateway processing (Razorpay, Instamojo)",
+    "Transactional email sending (SendGrid, SMTP, etc.)",
+    "Zoom API integration for automatic meeting link delivery",
+    "Internet Identity or user authentication",
+    "SEO meta-tag optimization beyond standard HTML structure",
+    "WhatsApp Business API integration"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional academy hero banner with abstract geometric shapes suggesting growth and education, navy blue tones with white accents (hero-banner.dim_1200x400.png)",
+      "Simple graduation cap icon illustration in navy blue on transparent background (graduation-icon.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

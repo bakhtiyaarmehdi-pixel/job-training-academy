@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with OKLCH color system using a professional navy/white/grey palette, custom Inter and Poppins fonts, and utility classes for cards, buttons, and section headings. Fixed `.academy-card` to use `border-border` instead of the unsupported `border-border/50` opacity modifier in `@apply`.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with custom navy, grey, and sky-accent color tokens, Inter/Poppins font families, and card shadow utilities.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend operations — course CRUD (getAllCourses, getCourse, createCourse, updateCourse, deleteCourse) and enrollment management (getAllEnrollments, createEnrollment, markEnrollmentPaid).",
+  "frontend/src/App.tsx": "Main app with TanStack Router setup, all routes (/, /courses, /course/:id, /checkout/:courseId, /thank-you, /contact, /admin), and a Layout component wrapping Navigation and Footer.",
+  "frontend/src/components/Navigation.tsx": "Sticky top navigation bar with navy background, logo, desktop nav links, active route highlighting, and a mobile hamburger menu with slide-down panel.",
+  "frontend/src/components/Footer.tsx": "Full-width navy footer with brand info, quick links, contact details (clickable tel/mailto), social media icons, and caffeine.ai attribution with UTM tracking.",
+  "frontend/src/pages/Home.tsx": "Home page with hero section, stats bar, featured courses grid (fetched from backend), why-choose-us section, testimonials, and a CTA banner.",
+  "frontend/src/pages/Courses.tsx": "Courses listing page with search filter, responsive card grid fetched from backend, loading skeletons, and empty state handling.",
+  "frontend/src/pages/CourseDetail.tsx": "Course detail page fetching a single course by ID, displaying full description, syllabus list, trainer info, batch timings, Zoom note, and a sticky enrollment sidebar.",
+  "frontend/src/pages/Checkout.tsx": "Enrollment checkout page with course summary, payment gateway disclaimer, validated form (name/email/phone), and backend enrollment creation with redirect to thank-you. Fixed the back-link to use TanStack Router's typed `to=\"/course/$id\"` with `params={{ id: courseId }}` instead of a template literal string.",
+  "frontend/src/pages/ThankYou.tsx": "Thank You confirmation page reading course name from query params, showing success message, Zoom link notice, and navigation buttons.",
+  "frontend/src/pages/Contact.tsx": "Contact page with a simulated contact form, WhatsApp click-to-chat button, clickable phone/email links, and a Google Maps placeholder section.",
+  "frontend/src/components/CourseForm.tsx": "Reusable course add/edit form with all fields including dynamic syllabus list, validation, and create/update mutation calls.",
+  "frontend/src/pages/Admin.tsx": "Admin dashboard with stats cards, tabbed interface for course management (CRUD with expand/collapse) and enrollment management (table with mark-paid action)."
+}

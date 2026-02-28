@@ -1,0 +1,89 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T00:39:48.853Z",
+  "summary": "The diff implements the vast majority of requirements. All major pages (Home, Courses, CourseDetail, Checkout, ThankYou, Contact, Admin), backend actor with full CRUD, enrollment model, and visual theme are present. A few specific acceptance criteria details appear missing or ambiguous based on the truncated diff.",
+  "missing_requirements": [
+    {
+      "requirement": "Backend actor stores enrollment records in stable storage (persisted across upgrades)",
+      "reason": "The backend/main.mo uses Map.empty() for courses and enrollments without visible 'stable' keyword declarations, meaning data may not survive canister upgrades as required by REQ-5's 'persisted in stable storage' AC.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "getCourses, getCourse, addCourse, updateCourse, deleteCourse method names as specified",
+      "reason": "The backend exposes getAllCourses and createCourse rather than getCourses and addCourse as specified in the acceptance criteria. The method names do not exactly match the required API surface.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Search/filter functionality on the Courses page",
+      "reason": "A search input with live filtering was added to the Courses page, but no such feature was requested in the build requirements.",
+      "evidence": [
+        "frontend/src/pages/Courses.tsx"
+      ]
+    },
+    {
+      "description": "Stats bar on the Home page with hardcoded metrics",
+      "reason": "A statistics bar section with Students Trained, Courses Available, Placement Rate, and Hiring Partners was added to the Home page, which was not requested in REQ-1.",
+      "evidence": [
+        "frontend/src/pages/Home.tsx"
+      ]
+    },
+    {
+      "description": "Stats summary cards on the Admin Dashboard",
+      "reason": "Dashboard statistics summary cards showing Total Courses, Total Enrollments, Pending Payments, and Paid Enrollments were added to the Admin page, which was not part of REQ-9.",
+      "evidence": [
+        "frontend/src/pages/Admin.tsx"
+      ]
+    },
+    {
+      "description": "Internet Identity authentication provider integration",
+      "reason": "InternetIdentityProvider, useInternetIdentity hook, and AuthClient integration are implemented and wrapped around the entire app, despite Internet Identity or user authentication being explicitly listed as a non-goal.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "getEnrollment single-enrollment lookup method on the backend",
+      "reason": "A getEnrollment method for fetching a single enrollment by ID was implemented, which was not requested. Only createEnrollment and getEnrollments were required by REQ-5.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CourseForm.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/Navigation.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/Admin.tsx",
+    "frontend/src/pages/Checkout.tsx",
+    "frontend/src/pages/Contact.tsx",
+    "frontend/src/pages/CourseDetail.tsx",
+    "frontend/src/pages/Courses.tsx",
+    "frontend/src/pages/Home.tsx",
+    "frontend/src/pages/ThankYou.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-home-page-with-a-bold-headline-upgrade-your-skills-get-job-ready-a-short-academy-intro-paragraph-a-highlights-section-showcasing-up-to-3-4-featured-courses-prominent-enroll-now-cta-buttons-a-testimonials-section-with-student-quotes-and-a-footer-containing-contact-details-and-placeholder-social-media-links",
+      "featureTitle": "Create a Home page with a bold headline ('Upgrade Your Skills. Get Job Ready.'), a short academy intro paragraph, a highlights section showcasing up to 3–4 featured courses, prominent 'Enroll Now' CTA buttons, a testimonials section with student quotes, and a footer containing contact details and placeholder social media links.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-courses-page-that-lists-all-available-courses-in-a-responsive-card-grid-layout-each-card-must-display-course-title-short-description-duration-fees-and-an-enroll-now-button-each-card-must-be-clickable-to-navigate-to-its-course-detail-page",
+      "featureTitle": "Create a Courses page that lists all available courses in a responsive card/grid layout. Each card must display: course title, short description, duration, fees, and an 'Enroll Now' button. Each card must be clickable to navigate to its Course Detail page.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Courses.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-course-detail-page-showing-the-full-course-description-syllabus-breakdown-list-of-topics-trainer-name-and-bio-batch-timings-pricing-and-an-enroll-now-button-the-page-must-be-reachable-via-a-route-parameterized-by-course-id",
+      "featureTitle": "Create a Course Detail page showing the full course description, syllabus breakdown (list of topics), trainer name and bio, batch timings, pricing, and an 'Enroll Now' button. The page must be reachable via a route parameterized by course ID.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CourseDetail.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-simulated-checkout-enrollment-flow-on-the-enroll-now-button-when-a-student-clicks-enroll-now-on-a-course-show-a-checkout-form-collecting-name-email-and-phone-on-form-submission-create-an-enrollment-record-in-the-backend-with-status-pending-display-an-on-screen-confirmation-message-and-redirect-to-a-thank-you-page-include-a-visible-note-that-payment-gateway-integration-razorpay-instamowo-requires-external-credentials-not-available-in-this-environment",
+      "featureTitle": "Build a simulated checkout/enrollment flow on the Enroll Now button. When a student clicks 'Enroll Now' on a course, show a checkout form collecting name, email, and phone. On form submission, create an enrollment record in the backend with status 'pending', display an on-screen confirmation message, and redirect to a Thank You page. Include a visible note that payment gateway integration (Razorpay/Instamowo) requires external credentials not available in this environment.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Checkout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-thank-you-page-that-displays-a-confirmation-message-the-enrolled-course-name-and-a-note-that-the-student-will-receive-a-zoom-meeting-link-at-their-registered-email-address-once-the-admin-confirms-enrollment",
+      "featureTitle": "Build a Thank You page that displays a confirmation message, the enrolled course name, and a note that the student will receive a Zoom meeting link at their registered email address once the admin confirms enrollment.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ThankYou.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-page-with-a-contact-form-fields-name-email-phone-message-a-whatsapp-click-to-chat-button-linking-to-a-placeholder-whatsapp-number-a-displayed-phone-number-and-email-address-and-a-placeholder-section-for-a-google-maps-embed",
+      "featureTitle": "Create a Contact page with a contact form (fields: Name, Email, Phone, Message), a WhatsApp click-to-chat button (linking to a placeholder WhatsApp number), a displayed phone number and email address, and a placeholder section for a Google Maps embed.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-admin-dashboard-page-accessible-at-admin-the-dashboard-must-support-listing-all-courses-with-edit-and-delete-actions-adding-a-new-course-form-with-all-course-fields-including-zoom-link-editing-an-existing-course-pre-filled-form-viewing-all-enrollments-with-student-name-email-course-and-payment-status-and-manually-marking-an-enrollment-as-paid",
+      "featureTitle": "Build an Admin Dashboard page accessible at /admin. The dashboard must support: listing all courses with edit and delete actions, adding a new course (form with all course fields including Zoom link), editing an existing course (pre-filled form), viewing all enrollments with student name, email, course, and payment status, and manually marking an enrollment as paid.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CourseForm.tsx",
+        "frontend/src/pages/Admin.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-professional-visual-theme-across-the-entire-site-clean-sans-serif-typography-a-minimal-color-palette-of-deep-navy-blue-1e3a5f-white-and-light-grey-generous-whitespace-card-based-layouts-with-subtle-shadows-and-a-sticky-top-navigation-bar-with-links-to-home-courses-contact-and-admin-ensure-full-mobile-responsiveness",
+      "featureTitle": "Apply a professional visual theme across the entire site: clean sans-serif typography, a minimal color palette of deep navy blue (#1E3A5F), white, and light grey, generous whitespace, card-based layouts with subtle shadows, and a sticky top navigation bar with links to Home, Courses, Contact, and Admin. Ensure full mobile responsiveness.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Job Training Academy website — professional, mobile-friendly, conversion-focused site with courses listing, course detail pages, payment integration (Razorpay/Instamojo), Zoom online class integration, contact page, and an admin dashboard for managing courses, enrollments, and payments.",
+  "architectural_notes": [
+    "Professional minimal color palette: blue, white, grey tones",
+    "SEO-friendly structure with fast load times and basic security setup",
+    "Mobile-first responsive design throughout",
+    "Functional over decorative — minimal animations, clean typography"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional academy hero banner with abstract geometric shapes suggesting growth and education, navy blue tones with white accents (hero-banner.dim_1200x400.png)\n- Simple graduation cap icon illustration in navy blue on transparent background (graduation-icon.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-home-page-with-a-bold-headline-upgrade-your-skills-get-job-ready-a-short-academy-intro-paragraph-a-highlights-section-showcasing-up-to-3-4-featured-courses-prominent-enroll-now-cta-buttons-a-testimonials-section-with-student-quotes-and-a-footer-containing-contact-details-and-placeholder-social-media-links",
+      "title": "Create a Home page with a bold headline ('Upgrade Your Skills. Get Job Ready.'), a short academy intro paragraph, a highlights section showcasing up to 3–4 featured courses, prominent 'Enroll Now' CTA buttons, a testimonials section with student quotes, and a footer containing contact details and placeholder social media links.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-courses-page-that-lists-all-available-courses-in-a-responsive-card-grid-layout-each-card-must-display-course-title-short-description-duration-fees-and-an-enroll-now-button-each-card-must-be-clickable-to-navigate-to-its-course-detail-page",
+      "title": "Create a Courses page that lists all available courses in a responsive card/grid layout. Each card must display: course title, short description, duration, fees, and an 'Enroll Now' button. Each card must be clickable to navigate to its Course Detail page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-course-detail-page-showing-the-full-course-description-syllabus-breakdown-list-of-topics-trainer-name-and-bio-batch-timings-pricing-and-an-enroll-now-button-the-page-must-be-reachable-via-a-route-parameterized-by-course-id",
+      "title": "Create a Course Detail page showing the full course description, syllabus breakdown (list of topics), trainer name and bio, batch timings, pricing, and an 'Enroll Now' button. The page must be reachable via a route parameterized by course ID.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-simulated-checkout-enrollment-flow-on-the-enroll-now-button-when-a-student-clicks-enroll-now-on-a-course-show-a-checkout-form-collecting-name-email-and-phone-on-form-submission-create-an-enrollment-record-in-the-backend-with-status-pending-display-an-on-screen-confirmation-message-and-redirect-to-a-thank-you-page-include-a-visible-note-that-payment-gateway-integration-razorpay-instamowo-requires-external-credentials-not-available-in-this-environment",
+      "title": "Build a simulated checkout/enrollment flow on the Enroll Now button. When a student clicks 'Enroll Now' on a course, show a checkout form collecting name, email, and phone. On form submission, create an enrollment record in the backend with status 'pending', display an on-screen confirmation message, and redirect to a Thank You page. Include a visible note that payment gateway integration (Razorpay/Instamowo) requires external credentials not available in this environment.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-thank-you-page-that-displays-a-confirmation-message-the-enrolled-course-name-and-a-note-that-the-student-will-receive-a-zoom-meeting-link-at-their-registered-email-address-once-the-admin-confirms-enrollment",
+      "title": "Build a Thank You page that displays a confirmation message, the enrolled course name, and a note that the student will receive a Zoom meeting link at their registered email address once the admin confirms enrollment.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-page-with-a-contact-form-fields-name-email-phone-message-a-whatsapp-click-to-chat-button-linking-to-a-placeholder-whatsapp-number-a-displayed-phone-number-and-email-address-and-a-placeholder-section-for-a-google-maps-embed",
+      "title": "Create a Contact page with a contact form (fields: Name, Email, Phone, Message), a WhatsApp click-to-chat button (linking to a placeholder WhatsApp number), a displayed phone number and email address, and a placeholder section for a Google Maps embed.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-dashboard-page-accessible-at-admin-the-dashboard-must-support-listing-all-courses-with-edit-and-delete-actions-adding-a-new-course-form-with-all-course-fields-including-zoom-link-editing-an-existing-course-pre-filled-form-viewing-all-enrollments-with-student-name-email-course-and-payment-status-and-manually-marking-an-enrollment-as-paid",
+      "title": "Build an Admin Dashboard page accessible at /admin. The dashboard must support: listing all courses with edit and delete actions, adding a new course (form with all course fields including Zoom link), editing an existing course (pre-filled form), viewing all enrollments with student name, email, course, and payment status, and manually marking an enrollment as paid.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-professional-visual-theme-across-the-entire-site-clean-sans-serif-typography-a-minimal-color-palette-of-deep-navy-blue-1e3a5f-white-and-light-grey-generous-whitespace-card-based-layouts-with-subtle-shadows-and-a-sticky-top-navigation-bar-with-links-to-home-courses-contact-and-admin-ensure-full-mobile-responsiveness",
+      "title": "Apply a professional visual theme across the entire site: clean sans-serif typography, a minimal color palette of deep navy blue (#1E3A5F), white, and light grey, generous whitespace, card-based layouts with subtle shadows, and a sticky top navigation bar with links to Home, Courses, Contact, and Admin. Ensure full mobile responsiveness.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home page with headline, intro, course highlights, CTA buttons, testimonials, and footer",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Courses page with card/grid layout showing title, description, duration, fees, and Enroll Now button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Course detail page with full description, syllabus, trainer info, batch timings, pricing, and enroll button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Payment integration with Razorpay or Instamojo, secure checkout, confirmation message, email confirmation, and Thank You page redirect",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Zoom integration for live classes — send meeting link via email after enrollment, admin can update links from dashboard",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Contact page with form, WhatsApp click-to-chat, phone/email display, and Google Maps embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Admin dashboard to add/edit/delete courses, update pricing, manage enrollments, and view payment status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement a backend data model for courses. Each course record must store: title, short description, full description, syllabus (array of topics), trainer name, trainer bio, batch timings, fees, and Zoom meeting link. Expose CRUD operations (create, read, update, delete) for courses accessible from the admin dashboard.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement a backend data model for enrollments. Each enrollment record must store: student name, email, phone number, course ID, payment status (pending/paid), and enrollment timestamp. Expose methods to create an enrollment and list all enrollments.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Job Training Academy",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
